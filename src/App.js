@@ -1,3 +1,4 @@
+import { StyledJsx} from "./components/StyledJsx.jsx";
 import { CssModules } from "./components/CssModules";
 import { InlineStyle } from "./components/InlineStyle";
 import "./styles.scss";
@@ -7,6 +8,7 @@ export default function App() {
     <div className="App">
       <InlineStyle />
       <CssModules />
-    </div>
+      <StyledJsx />
+    </div>  
   );
 }
