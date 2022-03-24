@@ -5,8 +5,11 @@ import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import {Home} from "./Home";
 import {Page1} from "./Page1";
 import {Page2} from "./Page2";
+import { Page1DetailA } from "./Page1DetailA";
+import { Page1DetailB } from "./Page1DetailB";
 import "./styles.scss";
-
+import { Page1Layout } from "./Page1Layout";
+//ネスト用のコンポーネントを作成
 export default function App() {
   return (
     <BrowserRouter>
@@ -20,10 +23,17 @@ export default function App() {
       <br />
     </div>
     <Routes>
-    <Route path="/" element={<Home />} />
-    {/* 遷移するURLにもち付いた、コンポーネント */}
-    <Route path="/page1" element={<Page1 />} />;
-    <Route path="/page2" element={<Page2 />} />
+      <Route path="/" element={<Home />} />
+      <Route path="/page1" element={<Page1Layout />}>
+      {/* ネスト用のコンポーネントを作成 */}
+       <Route index element={<Page1 />} />
+       {/* ネストされる親側のコンポーネント */}
+       <Route path="detailA" element={<Page1DetailA />} />
+       {/* ネストする子コンポーネント */}
+       <Route path="detailB" element={<Page1DetailB />} />
+       {/* ネストする子コンポーネント */}
+      </Route>
+     <Route path="/page2" element={<Page2 />} />
     </Routes>
     </BrowserRouter>
   );
