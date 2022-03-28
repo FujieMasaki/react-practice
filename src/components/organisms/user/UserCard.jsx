@@ -3,12 +3,14 @@ import { Card } from "../../atoms/cards/Card";
 import { UserIconWithName } from "../../molecules/user/UserIconWithName";
 
 export const UserCard = (props) => {
-    const { user,isAdmin } = props;
+    const { user } = props;
     // Usersから渡されたisAdmin
+    // バケツリレーにならなくて済むので、isAdminは削除
   return (
     <Card>
-       <UserIconWithName image={user.image} name={user.name} isAdmin={isAdmin}/>
+       <UserIconWithName image={user.image} name={user.name} />
        {/* UserIconWithNameへ渡す */}
+       {/* バケツリレーにならなくて済むので、isAdminは削除 */}
       <SDl>
         <dt>メール</dt>
         <dd>{user.email}</dd>

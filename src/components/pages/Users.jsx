@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { useLocation } from "react-router-dom";
 
 import { SearchInput } from "../molecules/SearchInput";
 import { UserCard } from "../organisms/user/UserCard";
@@ -20,8 +19,7 @@ const users = [...Array(10).keys()].map((val) => {
 });
 
 export const Users = () => {
-  const { state } = useLocation();
-  const isAdmin = state ? state.isAdmin : false;
+  // バケツリレーにならなくて済むので、isAdminは削除
   // 管理者か確認
 
   return (
@@ -31,8 +29,9 @@ export const Users = () => {
       <SearchInput />
       <SUserArea>
         {users.map((obj) => (
-          <UserCard key={obj.id} user={obj} isAdmin={isAdmin}/>
+          <UserCard key={obj.id} user={obj} />
           // UserCardに管理者かどうかの値を渡す
+          // バケツリレーにならなくて済むので、isAdminは削除
         ))}
       </SUserArea>
     </SContainer>
