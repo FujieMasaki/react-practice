@@ -1,8 +1,9 @@
+import { memo } from "react";
 import styled from "styled-components";
 import { Card } from "../../atoms/cards/Card";
 import { UserIconWithName } from "../../molecules/user/UserIconWithName";
 
-export const UserCard = (props) => {
+export const UserCard = memo((props) => {
     const { user } = props;
     // Usersから渡されたisAdmin
     // バケツリレーにならなくて済むので、isAdminは削除
@@ -23,7 +24,7 @@ export const UserCard = (props) => {
       </SDl>
     </Card>
   );
-};
+});
 
 const SDl = styled.dl`
 text-align: left;

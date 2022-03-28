@@ -13,7 +13,6 @@ export const Top = () => {
 
     const onClickAdmin = () =>
     setUserInfo({ isAdmin: true });
-    // set関数を呼び出す
     navigate("/users");
     // ボタンが押されたらuserspageに遷移したい
     const onClickGeneral = () =>

@@ -1,9 +1,9 @@
-import { useContext } from "react";
+import { memo, useContext } from "react";
 // Contextを使用
 import styled from "styled-components";
 import { UserContext } from "../../../provider/UserProvider";
 
-export const UserIconWithName = (props) => {
+export const UserIconWithName = memo((props) => {
   const { image, name } = props;
   // バケツリレーにならなくて済むので、isAdminは削除
   const { userInfo } = useContext(UserContext);
@@ -12,7 +12,7 @@ export const UserIconWithName = (props) => {
   // userInfoが存在していればuserInfo.isAdminのまま、なければfalse
   const context = useContext(UserContext);
   // useContextでUserContextを呼び出す。
-  console.log(context)
+
   return (
     <SContainer>
       <SImg height={160} width={160} src={image} alt="{name}" />
@@ -21,7 +21,7 @@ export const UserIconWithName = (props) => {
       {/* 管理者かどうか判定 */}
     </SContainer>
   );
-};
+});
 
 const SContainer = styled.div`
   text-align: center;
